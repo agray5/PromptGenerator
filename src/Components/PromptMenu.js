@@ -18,8 +18,9 @@ class PromptMenu extends React.Component {
 }
 
   render () {
+    console.log("styles", styles(this.props.theme))
     return (
-      <Menu>
+      <Menu styles={ styles(this.props.theme) } bodyClassName={ "my-class" }>
        <span> Used Prompts </span>
        <ul id="oldPrompts">
            {this.createList()}
@@ -28,5 +29,31 @@ class PromptMenu extends React.Component {
     );
   }
 }
+
+var styles = (theme) => {
+  console.log("theme", theme)
+  let comp = {
+    bmBurgerBars: {
+      background: theme.colors.background_menu.toString()
+    },
+    bmCross: {
+      background: theme.colors.text_menu.toString()
+    },
+    bmMenu: {
+      background: theme.colors.background_menu.toString()
+    },
+    bmMorphShape: {
+      fill: theme.colors.background_menu.toString()
+    },
+    bmItemList: {
+      color: theme.colors.text_menu.toString()
+    },
+    bmOverlay: {
+      background: 'rgba(0, 0, 0, 0.3)'
+    }
+  }
+  return comp
+}
+
 
 export default PromptMenu

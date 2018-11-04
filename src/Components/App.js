@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '../App.css';
 import RandomPrompt from'./RandomPrompt'
-import PromptMenu from './oldPrompts'
+import PromptMenu from './PromptMenu'
+import ConfirmDialog from './Dialog'
+import NavBar from './NavBar'
+
 
 import shuffleSeed from 'shuffle-seed'
-import prompts from './prompts'
+import prompts from '../prompts'
+
+import Theme from '../Theme'
 
 class App extends Component {
 
@@ -15,10 +19,14 @@ class App extends Component {
       seed: "",
       prompts: [],
       index: 0,
-      outOfPrompts: false
+      outOfPrompts: false,
+      dialogOpen: false 
     }
 
     this.nextPrompt = this.nextPrompt.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.showDialog = this.showDialog.bind(this);
+    this.handleThemeSave = this.handleThemeSave.bind(this);
   }
 
   componentDidMount(){
@@ -26,8 +34,6 @@ class App extends Component {
     if (!localStorage.getItem('seed'))
       localStorage.setItem('seed', makeSeed(5, 10));
     let localSeed = localStorage.getItem('seed')
-    console.log("state.seed", this.state.seed)
-    console.log("localSeed", localSeed)
 
     //Set index
     let localIndex = parseInt(localStorage.getItem('index'));
@@ -47,20 +53,32 @@ class App extends Component {
     } else{
       this.setState({outOfPrompts: true})
     }
-
-    console.log("next prompt index", this.state.index)
-    
+    this.handleClose()
   }
+
+  showDialog(){
+    this.setState({dialogOpen: true})
+  }
+
+  handleClose (){
+    this.setState({dialogOpen: false });
+  };
+
+  handleThemeSave(){
+
+  }
+
 
   render() {
     let buttonText = this.state.outOfPrompts? "No more prompts :(" : "Next Prompt";
     let index = this.state.index
-    console.log("render index", this.state.index)
     return (
       <div className="App">
-        <PromptMenu prompts={this.state.prompts} index={this.state.index}/>
+        <NavBar theme = {new Theme()} handleSave={this.handleThemeSave}/>
+        {/*<ConfirmDialog onOk={this.nextPrompt} onClose={this.handleClose} open={this.state.dialogOpen}/>*/}
+        {/*<PromptMenu prompts={this.state.prompts} index={this.state.index} theme={new Theme()}/>*/}
         <RandomPrompt prompt1={this.state.prompts[index]} prompt2={this.state.prompts[index+1]}/>
-        <span className={`glass ${this.state.outOfPrompts?"disabled":""}`} onClick={this.nextPrompt}
+        <span className={`glass ${this.state.outOfPrompts?"disabled":""}`} onClick={this.showDialog}
         id="button">{buttonText}</span>
         
       </div>
