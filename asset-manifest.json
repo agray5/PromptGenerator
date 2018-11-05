@@ -1,15 +1,14 @@
 {
-  "main.css": "/PromptGenerator/static/css/main.e7f2e36f.chunk.css",
-  "main.js": "/PromptGenerator/static/js/main.96257acc.chunk.js",
-  "main.js.map": "/PromptGenerator/static/js/main.96257acc.chunk.js.map",
-  "static/js/1.e5d6ea6c.chunk.js": "/PromptGenerator/static/js/1.e5d6ea6c.chunk.js",
-  "static/js/1.e5d6ea6c.chunk.js.map": "/PromptGenerator/static/js/1.e5d6ea6c.chunk.js.map",
+  "main.css": "/PromptGenerator/static/css/main.fd985cf6.chunk.css",
+  "main.js": "/PromptGenerator/static/js/main.8799943e.chunk.js",
+  "main.js.map": "/PromptGenerator/static/js/main.8799943e.chunk.js.map",
+  "static/js/1.3db376cd.chunk.js": "/PromptGenerator/static/js/1.3db376cd.chunk.js",
+  "static/js/1.3db376cd.chunk.js.map": "/PromptGenerator/static/js/1.3db376cd.chunk.js.map",
   "runtime~main.js": "/PromptGenerator/static/js/runtime~main.35a34f35.js",
   "runtime~main.js.map": "/PromptGenerator/static/js/runtime~main.35a34f35.js.map",
-  "static/css/main.e7f2e36f.chunk.css.map": "/PromptGenerator/static/css/main.e7f2e36f.chunk.css.map",
   "static/media/index.css": "/PromptGenerator/static/media/Tahoma Regular font.ef272a58.ttf",
-  "static/media/logo.svg": "/PromptGenerator/static/media/logo.5d5d9eef.svg",
+  "static/css/main.fd985cf6.chunk.css.map": "/PromptGenerator/static/css/main.fd985cf6.chunk.css.map",
   "index.html": "/PromptGenerator/index.html",
-  "precache-manifest.14e4dfea2754dec513b4f37dfe3f5941.js": "/PromptGenerator/precache-manifest.14e4dfea2754dec513b4f37dfe3f5941.js",
+  "precache-manifest.3ac2dedd4ac8e3727afa7c85163002e1.js": "/PromptGenerator/precache-manifest.3ac2dedd4ac8e3727afa7c85163002e1.js",
   "service-worker.js": "/PromptGenerator/service-worker.js"
 }
