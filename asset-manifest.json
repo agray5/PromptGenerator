@@ -1,14 +1,14 @@
 {
-  "main.css": "/PromptGenerator/static/css/main.fd985cf6.chunk.css",
-  "main.js": "/PromptGenerator/static/js/main.8799943e.chunk.js",
-  "main.js.map": "/PromptGenerator/static/js/main.8799943e.chunk.js.map",
+  "main.css": "/PromptGenerator/static/css/main.fef5cff1.chunk.css",
+  "main.js": "/PromptGenerator/static/js/main.7d5a00f9.chunk.js",
+  "main.js.map": "/PromptGenerator/static/js/main.7d5a00f9.chunk.js.map",
   "static/js/1.3db376cd.chunk.js": "/PromptGenerator/static/js/1.3db376cd.chunk.js",
   "static/js/1.3db376cd.chunk.js.map": "/PromptGenerator/static/js/1.3db376cd.chunk.js.map",
   "runtime~main.js": "/PromptGenerator/static/js/runtime~main.35a34f35.js",
   "runtime~main.js.map": "/PromptGenerator/static/js/runtime~main.35a34f35.js.map",
   "static/media/index.css": "/PromptGenerator/static/media/Tahoma Regular font.ef272a58.ttf",
-  "static/css/main.fd985cf6.chunk.css.map": "/PromptGenerator/static/css/main.fd985cf6.chunk.css.map",
+  "static/css/main.fef5cff1.chunk.css.map": "/PromptGenerator/static/css/main.fef5cff1.chunk.css.map",
   "index.html": "/PromptGenerator/index.html",
-  "precache-manifest.3ac2dedd4ac8e3727afa7c85163002e1.js": "/PromptGenerator/precache-manifest.3ac2dedd4ac8e3727afa7c85163002e1.js",
+  "precache-manifest.b5f815bcf381c76f110bd6c9e33edc64.js": "/PromptGenerator/precache-manifest.b5f815bcf381c76f110bd6c9e33edc64.js",
   "service-worker.js": "/PromptGenerator/service-worker.js"
 }
