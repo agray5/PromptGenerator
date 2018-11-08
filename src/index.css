@@ -10,8 +10,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background: #835435
 }
 
 html, body, .App, #root{
@@ -24,15 +22,12 @@ html, body, .App, #root{
   cursor: pointer; 
 }
 
-#prompt1{
-  margin-right: 100px;
-}
-
 .prompt {
   font-size: 50px;
   margin-top: 5%;
   color: #8bede3; 
   display: inline-block;
+  margin-right: 30px;
 }
 
 code {
@@ -45,8 +40,7 @@ code {
 	position: relative;
 	display: inline-block;
 	padding: 15px 25px;
-	background-color: green; /*for compatibility with older browsers*/
-	background-image: linear-gradient(green,lightgreen);
+	
 
 	/* text styles */
 	text-decoration: none;
@@ -67,9 +61,8 @@ text-shadow: 0px -1px #333;
 	left: 2px;
 	width: calc(100% - 4px);
 	height: 50%;
-	background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2));
 }
 
 .glass:hover{
-	background: linear-gradient(#073,#0fa);
+	
 }

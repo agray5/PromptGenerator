@@ -12,29 +12,31 @@ class ColorPicker extends Component {
         color: props.color,
       };
     }
-      handleClick = () => {
+
+    handleClick = () => {
         this.setState({ displayColorPicker: !this.state.displayColorPicker })
-      };
+    };
     
-      handleClose = () => {
+    handleClose = () => {
         this.setState({ displayColorPicker: false })
-      };
+    };
     
-      handleChange = (color) => {
+    handleChange = (color) => {
+        this.props.onChange(this.props.colorName, color)
         this.setState({ color: color.rgb })
-      };
+    };
     
-      render() {
-        console.log("display color picker?", this.state.displayColorPicker)
+    render() {
+        const label = (this.props.label? <label> {this.props.label} </label> : null);
         return (
-          <ColorPickerContainer color={this.state.color}>
-            {this.props.label? <label> {this.props.label} </label> : null}
-            <div className="swatch" onClick={ this.handleClick }>
-              <div className="color"/>
-            </div>
+          <ColorPickerContainer color={this.state.color} left={this.props.isLeft}>
+                <div className="swatch" onClick={ this.handleClick }>
+                    <div className="color"/>
+                </div>
+            {label}
             { this.state.displayColorPicker ? <div className="swatch-popover">
               <div  className="cover" onClick={ this.handleClose }/>
-              <ColorPickerBase color={ this.state.color } onChange={ this.handleChange } />
+              <ColorPickerBase color={ this.state.color } onChange={ this.handleChange } onCompleteChange={this.props.onCompleteChange}/>
             </div> : null }
     
           </ColorPickerContainer>
@@ -46,19 +48,21 @@ class ColorPicker extends Component {
   
   const ColorPickerContainer = styled.div`
     display: inline-block;
+    margin-top: 20px;
+
     & .color {
       float: left;
-      width: 36px;
-      height: 14px;
-      borderRadius: 2px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
       background: ${props  => `rgba(${ props.color.r }, ${ props.color.g }, ${ props.color.b }, ${ props.color.a });`}
     }
   
     & .swatch {
-      padding: 5px;
+      padding: 2px;
       background: #fff;
-      borderRadius: 1px;
-      boxShadow: 0 0 0 1px rgba(0,0,0,.1);
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(0,0,0,.1);
       display: inline-block;
       cursor: pointer;
     }
@@ -77,7 +81,7 @@ class ColorPicker extends Component {
     }
 
     & label {
-        float: left;
+        
     }
   `
 

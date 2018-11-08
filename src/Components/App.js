@@ -3,7 +3,9 @@ import '../App.css';
 import RandomPrompt from'./RandomPrompt'
 import PromptMenu from './PromptMenu'
 import ConfirmDialog from './Dialog'
+import NextButton from './NextButton'
 import NavBar from './NavBar'
+import styled from 'styled-components'
 
 
 import shuffleSeed from 'shuffle-seed'
@@ -15,12 +17,18 @@ class App extends Component {
 
   constructor(props){
     super(props);
+
+    //loadTheme
+    this.theme = new Theme();
+    this.theme.loadTheme()
+
     this.state = {
       seed: "",
       prompts: [],
       index: 0,
       outOfPrompts: false,
-      dialogOpen: false 
+      dialogOpen: false,
+      colors: this.theme.colors
     }
 
     this.nextPrompt = this.nextPrompt.bind(this);
@@ -41,7 +49,6 @@ class App extends Component {
       this.setState({index: localIndex})
 
     //generate prompt list
-    console.log("component did mount index:", localIndex, "seed", this.state.seed)
     this.setState({prompts: shuffleSeed.shuffle(prompts, localSeed)})
   }
 
@@ -64,8 +71,12 @@ class App extends Component {
     this.setState({dialogOpen: false });
   };
 
-  handleThemeSave(){
+  handleThemeSave(colors, showNavbar){
+      console.log("APP SAVE THEME", showNavbar)
+    this.theme.saveTheme(colors, showNavbar);
+    this.setState({colors: this.theme.colors})
 
+    console.log("App setting state")
   }
 
 
@@ -73,15 +84,14 @@ class App extends Component {
     let buttonText = this.state.outOfPrompts? "No more prompts :(" : "Next Prompt";
     let index = this.state.index
     return (
-      <div className="App">
-        <NavBar theme = {new Theme()} handleSave={this.handleThemeSave}/>
+      <StyledApp theme = {this.theme} className="App">
+        <NavBar theme = {this.theme} handleSave={this.handleThemeSave} prompts={this.state.prompts}index={this.state.index}/>
         {/*<ConfirmDialog onOk={this.nextPrompt} onClose={this.handleClose} open={this.state.dialogOpen}/>*/}
         {/*<PromptMenu prompts={this.state.prompts} index={this.state.index} theme={new Theme()}/>*/}
-        <RandomPrompt prompt1={this.state.prompts[index]} prompt2={this.state.prompts[index+1]}/>
-        <span className={`glass ${this.state.outOfPrompts?"disabled":""}`} onClick={this.showDialog}
-        id="button">{buttonText}</span>
+        <RandomPrompt theme = {this.theme}  prompt1={this.state.prompts[index]} prompt2={this.state.prompts[index+1]}/>
+        <NextButton theme = {this.theme} buttonText={buttonText} outOfPrompts={this.state.outOfPrompts} onClick={this.nextPrompt}/>
         
-      </div>
+      </StyledApp>
     );
   }
 }
@@ -98,3 +108,8 @@ function makeSeed(min, max) {
 
   return text;
 }
+
+const StyledApp = styled.div`
+    background: ${props => props.theme.colors.background.toString()};
+`;
+

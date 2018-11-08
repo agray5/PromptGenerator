@@ -24,12 +24,15 @@ class ColorPickerBase extends React.Component {
     style={ styles }
     label="hex"
     color={ this.props.hex }
-    onChange={ this.props.onChange } />
+    onChangeComplete={ this.props.onChangeComplete } 
+    onChange={this.props.onChange}
+    />
     <EditableInput
           style={{ input: styles.input }}
           value={ this.props.hex }
-          onChange={ this.props.onChange }
-/>
+          onChangeComplete={ this.props.onChangeComplete }
+          onChange={this.props.onChange}
+    />
     </div>)
   }
 }
